@@ -1,51 +1,43 @@
 $(document).ready(function () {
 
-/*    jQuery(function ($) {
+    /*    jQuery(function ($) {
 
 
 
-        var movCont = $('.container');
+            var movCont = $('.container');
 
-        movCont.sortable({
+            movCont.sortable({
 
-            update: function () {
-                $('.container', movCont).each(function (index, elem) {
-                    var $listItem = $(elem),
-                        newIndex = $listItem.index();
+                update: function () {
+                    $('.container', movCont).each(function (index, elem) {
+                        var $listItem = $(elem),
+                            newIndex = $listItem.index();
 
-                    // Persist the new indices.
-                });
-            }
-        });
+                        // Persist the new indices.
+                    });
+                }
+            });
 
 
 
-    });*/
+        });*/
 
 
     $(".sortablecontainer").sortable({
         tolerance: 'pointer',
         revert: 'invalid',
-        placeholder: 'span2 well placeholder tile',
+       // placeholder: 'span2 well placeholder tile',
         forceHelperSize: true
     });
-    
-    
-    $(".container").sortable({
-        tolerance: 'pointer',
-        revert: 'invalid',
-        placeholder: 'span2 well placeholder tile',
-        forceHelperSize: true
-    });
-    
 
+
+    
     $('#AjoutContainer').click(function () {
         $('<div class="container">Container Base.<div id="remove" class="btn"><div class="remove"><i class="fa fa-trash" aria-hidden="true"></i></div></div></div>').insertBefore("#AjoutContainer");
 
         // alert("Add bouton was clicked.");
 
     });
-
 
 
 
@@ -56,8 +48,3 @@ $(document).ready(function () {
     });
 
 });
-
-
-
-
-
