@@ -20,6 +20,8 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
     <link rel="stylesheet" href="style.css">
 
@@ -54,8 +56,10 @@
 
 
                 <div class="row">
-                    <div id="modultext" class=" col-md-12">
+                    <div id="modultext" class=" col-sm-12">
                         module Text1
+                        <input type="text" class="form-control" id="usr">
+
                         <div id="AjoutModul" class="btn">
                             <i class="fa fa-plus-square" aria-hidden="true"></i>
                         </div>
@@ -66,8 +70,13 @@
                 </div>
 
                 <div class="row">
-                    <div id="modultext" class=" col-md-12">
-                        module Text2
+                    <div id="modultext" class=" col-sm-12">
+                        module Image1
+                        <form method="POST" action="upload.php" enctype="multipart/form-data">
+                            <!-- On limite le fichier à 100Ko -->
+                            <input type="hidden" name="MAX_FILE_SIZE" value="100000"> Fichier : <input type="file" name="avatar">
+                            <input type="submit" name="envoyer" value="Envoyer le fichier">
+                        </form>
                         <div id="AjoutModul" class="btn">
                             <i class="fa fa-plus-square" aria-hidden="true"></i>
                         </div>
@@ -78,8 +87,14 @@
                 </div>
 
                 <div class="row">
-                    <div id="modultext" class="col-sm-6">
-                        module Text3
+                    <div id="modultext" class="col-sm-12">
+                       Module Maps1
+                       
+                        
+                        
+                        <div id="map" style="width:400px;height:400px;"></div>
+                        
+                        
                         <div id="AjoutModul" class="btn">
                             <i class="fa fa-plus-square" aria-hidden="true"></i>
                         </div>
@@ -87,7 +102,7 @@
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div id="modultext" class="col-sm-6">
+                    <!--                    <div id="modultext" class="col-sm-6">
                         module Text4
                         <div id="AjoutModul" class="btn">
                             <i class="fa fa-plus-square" aria-hidden="true"></i>
@@ -95,7 +110,7 @@
                         <div id="removemodul" class="btn">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
             </div>
@@ -117,7 +132,9 @@
 
                 <div class="row">
                     <div id="modultext" class=" col-md-12">
-                        module Text1
+                        module Text1</br>
+                        
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe></br>
                         <div id="AjoutModul" class="btn">
                             <i class="fa fa-plus-square" aria-hidden="true"></i>
                         </div>
@@ -133,7 +150,7 @@
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </div>
 
-
+            <button type="button" class="btn btn-success pull-right">Valider</button>
 
 
         </div>
