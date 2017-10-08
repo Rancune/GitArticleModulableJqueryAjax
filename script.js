@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     //-------------AJOUT---------------//
     $('#AjoutContainer').click(function () {
-        $('<div class="container">Container Base.<div id="remove" class="btn"><div class="remove"><i class="fa fa-trash" aria-hidden="true"></i></div></div></div>').insertBefore("#AjoutContainer");
+        $('<div class="container">Container Base 2.<div id="addColumn" class="btn"><span class="glyphicon glyphicon-triangle-left"></span></div><div id="delColumn" class="btn"><span class="glyphicon glyphicon-triangle-right"></span></div> <div id="remove" class="btn"><div class="remove"><i class="fa fa-trash" aria-hidden="true"></i></div></div><div class="row"> <div id="modultext" class=" col-md-12"> module Text1 <div id="AjoutModul" class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i></div><div id="removemodul" class="btn"><i class="fa fa-trash" aria-hidden="true"></i> </div></div> </div></div>').insertBefore("#AjoutContainer");
 
         // alert("Add bouton was clicked.");
 
@@ -67,5 +67,9 @@ $(document).ready(function () {
         $(this).closest('.row').addClass('col-md-6');
     });
 
+        $(document).on('click', '#delColumn', function () {
+        $(this).closest('.row').removeClass();
+        $(this).closest('.row').addClass('col-md-12');
+    });
 
 });
