@@ -44,7 +44,7 @@
             <div class="sortablecontainer">
 
                 <div class="container">
-                    <labe>Container Base 1.</labe>
+                    <label>Container Base 1.</label>
 
                     <div id="addColumn" class="btn">
                         <span class="glyphicon glyphicon-triangle-left"></span>
@@ -57,7 +57,7 @@
 
                     <div class="row">
                         <div id="modultext" class=" col-sm-12">
-                            <labe>module Text1</labe>
+                            <label>module Text1</label>
                             <input type="text" class="form-control" id="usr1">
 
                             <div id="AjoutModulText" class="btn">
@@ -71,11 +71,10 @@
 
                     <div class="row">
                         <div id="modultext" class=" col-sm-12">
-                            <labe>module Image1</labe>
+                            <label>module Image1</label>
                             <form method="POST" action="upload.php" enctype="multipart/form-data">
-                                <!-- FORM a CHANGER : On Doit sélection une image pour l'afficher  -->
-                                <input type="hidden" name="MAX_FILE_SIZE" value="100000"> Fichier : <input type="file" name="avatar" id="image1">
-                                
+                                <input type="file" name="imgArt1" id="image1" onchange="readURL(this);">
+                                <img id="imageselection1" src="#" alt="Ici l'image choisie" />
                             </form>
                             <div id="AjoutModulVideo" class="btn">
                                 <i class="fa fa-plus-square" aria-hidden="true"></i>
@@ -88,7 +87,7 @@
 
                     <div class="row">
                         <div id="modultext" class="col-sm-12">
-                           <labe> Module Maps1</labe>
+                            <label> Module Maps1</label>
 
 
                             <div id="map" style="width:400px;height:400px;"></div>
@@ -101,21 +100,15 @@
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </div>
                         </div>
-                        <!--    <div id="modultext" class="col-sm-6">
-                        module Text4
-                        <div id="AjoutModul" class="btn">
-                            <i class="fa fa-plus-square" aria-hidden="true"></i>
-                        </div>
-                        <div id="removemodul" class="btn">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </div>
-                    </div>-->
                     </div>
 
                 </div>
 
+
+
+
                 <div class="container">
-                <labe>Container Base 2.</labe>
+                    <label>Container Base 2.</label>
 
 
                     <div id="addColumn" class="btn">
@@ -132,7 +125,7 @@
 
                     <div class="row">
                         <div id="modultext" class=" col-md-12">
-                           <labe> module Video1</br></labe>
+                            <label> module Video1</label></br>
 
                             <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe></br>
                             <div id="AjoutModul" class="btn">
@@ -150,7 +143,7 @@
                     <i class="fa fa-plus-square" aria-hidden="true"></i>
                 </div>
 
-                <input type="button" class="btn btn-success pull-right" value="Valider" onclick="articleSend()"/>
+                <input type="button" id="save" class="btn btn-success pull-right" value="Valider" onclick="articleSend()" />
 
 
             </div>

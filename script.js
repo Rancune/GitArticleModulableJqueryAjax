@@ -6,7 +6,7 @@ $(document).ready(function () {
     $(".sortablecontainer").sortable({
         tolerance: 'pointer',
         revert: 'invalid',
-        // placeholder: 'span2 well placeholder tile',
+        placeholder: 'span2 well placeholder tile',
         forceHelperSize: true
     });
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
         connectWith: ".container",
         tolerance: 'pointer',
         revert: 'invalid',
-        // placeholder: 'span2 well placeholder tile',
+        placeholder: 'span2 well placeholder tile',
         forceHelperSize: true
     });
 
@@ -38,14 +38,15 @@ $(document).ready(function () {
 
 
     //-------------AJOUT MODUL TEXT---------------//
+    //TODO : compter et incrémenter les id des modules pour sauvegarder la configuration de l'article 
     $(document).on('click', '#AjoutModulText', function () {
         var modul = $(this).closest('.row');
         $('<div class="row"> <div id="modultext" class="col-md-12">module TextAdd <input type="text" class="form-control" id="usr"><div id="AjoutModulText" class="btn"><i class="fa fa-plus-square" aria-hidden="true"></i> </div><div id="removemodul" class="btn"><i class="fa fa-trash" aria-hidden="true"></i> </div> </div> </div>').insertAfter(modul);
-        //TODO : compter et incrémenter les id des modules pour sauvegarder la configuration de l'article 
 
     });
 
-    
+
+
     //-------------AJOUT MODUL VIDEO---------------//
     $(document).on('click', '#AjoutModulVideo', function () {
         var modul = $(this).closest('.row');
@@ -69,6 +70,8 @@ $(document).ready(function () {
 
 
     //----------------AJOUT COLUMN-------------------//
+    // On ajout des column avec les fleches gauche droite en haut de container 
+    //TODO: utiliser IF pour changer la class : col-md-3 en col-md-6 puis en col-md-12 et inversement à chaque clic sur une fleche
     $(document).on('click', '#addColumn', function () {
         $(this).closest('.row').removeClass();
         $(this).closest('.row').addClass('col-md-6');
@@ -78,8 +81,26 @@ $(document).ready(function () {
         $(this).closest('.row').removeClass();
         $(this).closest('.row').addClass('col-md-12');
     });
-    
 
+
+
+
+
+    //----------------AFFICHAGE DE L'IMAGE SELECTIONNEE--------//
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imageselection1')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
 
     //----------------GOOGLE MAPS-------------------//
@@ -95,19 +116,33 @@ $(document).ready(function () {
 
 
     //----------------ARTICLE SAVEtoDB-------------------//
-    function articleSend() {
-        $.ajax({
-            type: "POST",
-            url: "ajoutarticle.php",
-            data: form,
 
-            success: function (data) {
-                alert("L'article a été sauvegardé.");
-                window.location.reload(true);
 
-            }
-        });
 
-    }
+    $(document).on('click', '#save', function (e) {
+        function articleSend() {
+            var data = $("#article_add").serialize();
+            $.ajax({
+                type: "POST",
+                url: "ajoutarticle.php",
+                data: form,
+
+                success: function (data) {
+                    alert("L'article a été sauvegardé.");
+                    window.location.reload(true);
+
+                }
+            });
+
+        }
+    });
+
+
+
+
+
+
+
+
 
 });
